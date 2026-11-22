@@ -184,3 +184,51 @@ RegisterStep(1565, 84912, { -- Ardenweald
     requires=GUEST,
 })
 })
+
+-- Celebration Crates: these stay up after the event ends.
+-- Crate Insurance Agent (40873) is any six; No Crate Left Behind (40979) is all of them.
+local crate = {
+    achievement=40979,
+    group="Anniversary",
+    texture=ns.atlas_texture("VignetteLoot", {r=1, g=1, b=0}),
+    minimap=true,
+}
+ns.RegisterPoints(862, { -- Zuldazar
+    [54205420] = {quest=83794, loot={226200}, inbag=226200, note="Buy a Clam Digger from Master Talekeep Nikto, lower in the Dive Bar, and give it to Gerald the conch on the upper level"}, -- Soggy Celebration Crate
+}, crate)
+ns.RegisterPoints(66, { -- Desolace
+    [54005810] = {quest=85574, loot={232263}, inbag=232263, note="Only visible while you're dead"}, -- Hazy Celebration Crate
+}, crate)
+ns.RegisterPoints(42, { -- Deadwind Pass
+    [22438374] = {quest=84470, loot={228322}, inbag=228322, note="Deep in the Karazhan Crypts. Go down the spiral tunnel, then swim to the other side.", path={30228133, 33527072, 39837311}}, -- Dirt-Caked Celebration Crate
+}, crate)
+ns.RegisterPoints(64, { -- Thousand Needles
+    [64908440] = {quest=84624, loot={228767, 228768}, inbag=228768, note="In the back of a silithid cave at the Rustmaul Dig Site. Take it to Vashti the Wandering Merchant, who patrols the eastern road in Azsuna; he sells the Sandy Celebration Crate.", path=66308620}, -- Water-Resistant Receipt, Sandy Celebration Crate
+}, crate)
+ns.RegisterPoints(117, { -- Howling Fjord
+    [29400636] = {quest=83931, loot={226375}, inbag=226375, note="In a cave on the border with Grizzly Hills"}, -- Battered Celebration Crate
+}, crate)
+ns.RegisterPoints(71, { -- Tanaris
+    [69186860] = {quest=84426, loot={228212}, inbag=228212, note="Underwater, on the second floor of the larger gnomish building"}, -- Waterlogged Celebration Crate
+}, crate)
+ns.RegisterPoints(198, { -- Mount Hyjal
+    [13603350] = {quest=84767, loot={228976}, inbag=228976, note="Under the trampoline"}, -- Charred Celebration Crate
+}, crate)
+ns.RegisterPoints(63, { -- Ashenvale
+    [47903840] = {quest=85523, label="{spell:463368:Potion of Truth}", note="At the top of Thunder Peak, behind Lord Magmathar. You need its 30-minute buff to see the Mildewed Celebration Crate in Feralas. Fly there yourself; changing continents or taking a flight path removes it."},
+}, crate)
+ns.RegisterPoints(69, { -- Feralas
+    [60423540] = {quest=85523, loot={231886}, inbag=231886, note="In the corridors to Dire Maul. Only visible with the Potion of Truth buff from Ashenvale."}, -- Mildewed Celebration Crate
+}, crate)
+ns.RegisterPoints(107, { -- Nagrand (Outland)
+    [35277473] = {quest=84773, loot={228983}, inbag=228983, note="Inside Oshu'gun, in the middle room of the draenei section", path=35856720}, -- Crystallized Celebration Crate
+}, crate)
+ns.RegisterPoints(12, { -- Kalimdor; the Ahn'Qiraj: The Fallen Kingdom map coordinates are unreliable
+    [40719283] = {quest=84625, loot={228772}, inbag=228772, note="In a cave on the southwest coast of Ahn'Qiraj: The Fallen Kingdom, behind the sleeping dragon. Summon a dog battle pet to dig up the bones.", path=40439312}, -- Mysterious Bones
+}, crate)
+ns.RegisterPoints(634, { -- Stormheim
+    [37394764] = {quest=84625, loot={228770}, inbag=228770, note="At the grave on the cliff above the wrecked warship at the Weeping Bluffs. Use the Mysterious Bones."}, -- Surprisingly Pristine Celebration Crate
+}, crate)
+ns.RegisterPoints(1536, { -- Maldraxxus
+    [49997381] = {quest=84909, loot={229367}, inbag=229367, note="On the top level of the Seat of the Primus, next to the portal"}, -- Ghostly Celebration Crate
+}, crate)
