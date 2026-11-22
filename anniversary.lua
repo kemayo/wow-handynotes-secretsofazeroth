@@ -113,21 +113,22 @@ RegisterStep(862, 84435, { -- Zuldazar
 -- From Ashes to Wisdom
 local whistle = {
     achievement=40871, criteria=70454, -- The Case of Great Aspirations
-    note="Use the Whelpling Whistle here", atlas="questobjective",
+    note="Use the Whelpling Whistle here; you have to visit the points in order",
+    atlas="questobjective",
     requires=GUEST,
     parent=true,
 }
 RegisterStep(36, 84933, { -- Burning Steppes
-    [61142953] = {label="Voidfire: Ruins of Thaurissan"},
+    [61142953] = {label="Voidfire #1: Ruins of Thaurissan"},
 }, whistle)
 RegisterStep(15, 84933, { -- Badlands
-    [31074870] = {label="Voidfire: Scar of the Worldbreaker"},
+    [31074870] = {label="Voidfire #2: Scar of the Worldbreaker"},
 }, whistle)
 RegisterStep(241, 84933, { -- Twilight Highlands
-    [38434919] = {label="Voidfire: Twilight Breach"},
+    [38434919] = {label="Voidfire #3: Twilight Breach"},
 }, whistle)
 RegisterStep(205, 84933, { -- Shimmering Expanse
-    [39076748] = {label="Voidfire: Ruins of Vashj'ir"},
+    [39076748] = {label="Voidfire #4: Ruins of Vashj'ir", translate={[13]=true}},
 }, whistle)
 
 -- A Bird's Tail
