@@ -17,6 +17,7 @@ ns.RegisterPoints(71, { -- Tanaris
         achievement=40871, criteria=true,
         note="Gives a new story quest each day of the event",
         atlas="questnormal",
+        minimap=true,
     },
 }, {
     group="Anniversary",
@@ -91,13 +92,14 @@ RegisterStep(71, 84595, { -- Tanaris
     [63034943] = {npc=229775, atlas="questobjective", note="Under the Fashion Frenzy stage. Search the nearby Trash Pile first."}, -- Sully "The Pickle" McLeary
 }, loud)
 RegisterStep(371, 84595, { -- The Jade Forest
-    [42136036] = {label="Stone bridge", note="Reset your Tricked-Out Thinking Cap to (0, 0) here, then go to (10, -40)", atlas="questobjective"},
+    [42136036] = {label="Stone bridge", parent=true, note="Reset your Tricked-Out Thinking Cap to (0, 0) here, then go to (10, -40)", atlas="questobjective"},
     [43366882] = {label="Raccoon grave", note="Use the Torch of Pyrreth on the graves. Approach Gizmo slowly when he runs."},
 }, loud)
 
 -- Nola's Last Wish
 local wish = {
     achievement=40871, criteria=69852, -- The Case of an Old Soul
+    parent=true,
     requires=GUEST,
 }
 RegisterStep(864, 84435, { -- Vol'dun
@@ -113,6 +115,7 @@ local whistle = {
     achievement=40871, criteria=70454, -- The Case of Great Aspirations
     note="Use the Whelpling Whistle here", atlas="questobjective",
     requires=GUEST,
+    parent=true,
 }
 RegisterStep(36, 84933, { -- Burning Steppes
     [61142953] = {label="Voidfire: Ruins of Thaurissan"},
@@ -128,7 +131,11 @@ RegisterStep(205, 84933, { -- Shimmering Expanse
 }, whistle)
 
 -- A Bird's Tail
-local bird = {achievement=40871, criteria=70455, requires=GUEST} -- The Case of a Feathered Friend
+local bird = {
+    achievement=40871, criteria=70455, -- The Case of a Feathered Friend
+    requires=GUEST,
+    parent=true,
+}
 RegisterStep(542, 84924, { -- Spires of Arak
     [45765360] = {loot={229408}, inbag=229408, note="By a bonfire on a sundial, at the top of the Windswept Terrace"}, -- Burnt Feather
 }, bird)
@@ -156,7 +163,7 @@ RegisterStep(71, 85477, { -- Tanaris
 })
 
 -- Battle Pet Bingo
-local bingo = {achievement=40871, criteria=69851, requires=GUEST} -- The Case of Pet Games
+local bingo = {achievement=40871, criteria=69851, parent=true, requires=GUEST} -- The Case of Pet Games
 RegisterStep(371, 84469, { -- The Jade Forest
     [64068076] = {label="Jumping Spider", note="By some bamboo east of Pearlfin Village"},
 }, bingo)
