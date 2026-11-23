@@ -13,7 +13,7 @@ local GUEST = ns.conditions.All(ns.conditions.QuestComplete(84868), ANNIVERSARY)
 -- Every story starts with Alyx; the step points only show while on their quest.
 ns.RegisterPoints(71, { -- Tanaris
     [63025024] = { -- nudged off the Six of Frost card at 63005020
-        npc=226683, -- Alyx
+        npc="{npc:226683}", -- Alyx
         achievement=40871, criteria=true,
         note="Gives a new story quest each day of the event",
         atlas="questnormal",
@@ -75,7 +75,7 @@ RegisterStep(71, 83825, { -- Tanaris
     [61874981] = {label="Green Hills of Stranglethorn - Page 16", note="By the bowl next to the doghouse in the Pet Corner"},
     [64525181] = {label="Green Hills of Stranglethorn - Page 18", note="Between three rocks to the right of the Hearthstone board, behind the Story Time stage"},
     [63534778] = {label="Green Hills of Stranglethorn - Page 21", note="Next to the outhouse behind the Fashion Frenzy stage"},
-    [63604870] = {npc=227816, note="Sells a new copy of the book for 100g, if you want to skip the pages", atlas="banker"}, -- Cravitz Lorent
+    [63604870] = {label="{npc:227816}", note="Sells a new copy of the book for 100g, if you want to skip the pages", atlas="banker"}, -- Cravitz Lorent
 }, {
     achievement=40871, criteria=69850, -- The Case of a Good Book
     requires=GUEST,
@@ -87,8 +87,8 @@ local loud = {
     requires=GUEST,
 }
 RegisterStep(71, 84595, { -- Tanaris
-    [62354992] = {npc=229811, atlas="questobjective", note="Choose \"Dead\" then \"Raccoon\""}, -- Breanni
-    [63034943] = {npc=229775, atlas="questobjective", note="Under the Fashion Frenzy stage. Search the nearby Trash Pile first."}, -- Sully "The Pickle" McLeary
+    [62354992] = {label="{npc:229811}", atlas="questobjective", note="Choose \"Dead\" then \"Raccoon\""}, -- Breanni
+    [63034943] = {label="{npc:229775}", atlas="questobjective", note="Under the Fashion Frenzy stage. Search the nearby Trash Pile first."}, -- Sully "The Pickle" McLeary
 }, loud)
 RegisterStep(371, 84595, { -- The Jade Forest
     [43366882] = {label="Raccoon grave", parent=true, note="Use the Torch of Pyrreth on the graves. Approach Gizmo slowly when he runs.", path=42136036},
@@ -102,7 +102,7 @@ local wish = {
 }
 RegisterStep(864, 84435, { -- Vol'dun
     [64022607] = {label="Nola's Last Wish", note="Use the Idol of Ohn'ahra near the dead Tortaka Tribesmen"},
-    [61602050] = {npc=123063, note="In Tortaka Refuge", atlas="questobjective"}, -- Elder Kuppaka
+    [61602050] = {label="{npc:123063}", note="In Tortaka Refuge", atlas="questobjective"}, -- Elder Kuppaka
 }, wish)
 RegisterStep(862, 84435, { -- Zuldazar
     [24404450] = {label="Tortollan wedding", note="Use Nola's Last Wish here. Or reset your Tricked-Out Thinking Cap to (0, 0) at the scroll location, then go to (-132, -429)", atlas="questobjective"},
@@ -151,10 +151,11 @@ RegisterStep(525, 84924, { -- Frostfire Ridge
 -- Lost and... Found?
 -- Take the items from the box next to Alyx. Marin Noggenfogger (Potion Bottle) patrols, so has no point.
 RegisterStep(71, 85477, { -- Tanaris
-    [63105202] = {npc=228262, note="Give the Well-Worn Almanac. By the fences near the Mount Mania stage."}, -- Farmer Yoon
-    [62264984] = {npc=228247, note="Give the Tiny Mechanical Mouse. Patrols by the toy stall."}, -- Oglethorpe Obnoticus
-    [63495215] = {npc=228249, note="Give the Crude Ivory Locket. In line at the bar to the right of the Story Time stage."}, -- Mankrik
-    [63395181] = {npc=228251, note="Give the Jade Amulet. By the fences near the Mount Mania stage."}, -- John J. Keeshan
+    [62264984] = {label="{npc:228247}", requires=ns.conditions.Item(231762), note="Give the {item:231762:Tiny Mechanical Mouse}. Patrols by the toy stall."}, -- Oglethorpe Obnoticus
+    [63525036] = {label="{npc:228248}", requires=ns.conditions.Item(231763), note="Give the {item:231763:Potion Bottle}. Wanders."}, -- Marin Noggenfogger
+    [63495215] = {label="{npc:228249}", requires=ns.conditions.Item(231761), note="Give the {item:231761:Crude Ivory Locket}. In line at the bar to the right of the Story Time stage."}, -- Mankrik
+    [63395181] = {label="{npc:228251}", requires=ns.conditions.Item(231764), note="Give the {item:231764:Jade Amulet}. By the fences near the Mount Mania stage."}, -- John J. Keeshan
+    [63105202] = {label="{npc:228262}", requires=ns.conditions.Item(231765), note="Give the {item:231765:Well-Worn Almanac}. By the fences near the Mount Mania stage."}, -- Farmer Yoon
 }, {
     achievement=40871, criteria=70453, -- The Case of Missing Mementos
     atlas="questobjective",
@@ -205,17 +206,19 @@ RegisterStep(71, 84521, { -- Tanaris: Thoughtful Pursuits
     [61404980] = {label="Downy Helmet Liner", note="Behind Taivan in the Pet Corner"},
 })
 RegisterStep(71, 84237, { -- Tanaris: The "Great" Detective
-    [63905170] = {npc=226796, note="On a bench by the Story Time stage", atlas="questobjective"}, -- Detective Athelton Jones
+    [63905170] = {label="{npc:226796}", note="On a bench by the Story Time stage", atlas="questobjective"}, -- Detective Athelton Jones
     [63805110] = {label="Team Solid", note="Use the Idol of Ohn'ahra, then talk to all three until they have nothing more to say", atlas="questobjective"},
     [65905950] = {label="Abandoned Chair", note="On the beach south of the Caverns of Time"},
     [65904040] = {label="Wavestrider Beach", note="Talk to all the NPCs and use the Torch of Pyrreth on the sand piles. At 96% progress, accuse someone to Jones."},
+}, {
+    atlas="questobjective"
 })
 RegisterStep(71, 84278, { -- Tanaris: Tracking Quest
     [68004080] = {label="Goblin Vessel", note="Use the Tricked-Out Thinking Cap by Alyx, then go to (36, 44)", atlas="questobjective"},
 })
 RegisterStep(114, 84278, { -- Borean Tundra
     [78805360] = {label="Unu'pe Docks", note="Reset your Tricked-Out Thinking Cap here", atlas="questobjective"},
-    [77304610] = {npc=226952, atlas="questobjective"}, -- Rexxar
+    [77304610] = {label="{npc:226952}", atlas="questobjective"}, -- Rexxar
 })
 RegisterStep(114, 84296, { -- Borean Tundra: The Trail's Gone Cold
     [85903400] = {label="Fishing Hut", note="One note inside the hut, and one to the left that the Torch of Pyrreth uncovers. Ignore the wisps."},
@@ -228,16 +231,16 @@ RegisterStep(118, 84296, { -- Icecrown
     [16005880] = {label="Scrapes's Corpse", note="In Balagarde Fortress. Use the Idol of Ohn'ahra to find it, then the Spirit's Whistle to summon Rexxar."},
 })
 RegisterStep(71, 84336, { -- Tanaris: Spot the Difference
-    [63385230] = {npc=158192, note="Witness"}, -- Leeroy Jenkins
-    [63455167] = {npc=227731, note="Witness"}, -- Addie Fizzlebog
-    [62475194] = {npc=228250, note="Witness"}, -- Hemet Nesingwary Sr.
-    [59946247] = {npc=228663, note="Southeast of the Bootlegger Outpost flight path. Kill it, then return to Alyx."}, -- Y'lliya Xennin
+    [63385230] = {label="{npc:158192}", note="Witness"}, -- Leeroy Jenkins
+    [63455167] = {label="{npc:227731}", note="Witness"}, -- Addie Fizzlebog
+    [62475194] = {label="{npc:228250}", note="Witness"}, -- Hemet Nesingwary Sr.
+    [59946247] = {label="{npc:228663}", note="Southeast of the Bootlegger Outpost flight path. Kill it, then return to Alyx."}, -- Y'lliya Xennin
 }, npc)
 
 -- Chapter 2
 local toyRescue = {84588, 85025, any=true} -- Operation Toy Rescue
 RegisterStep(2024, toyRescue, { -- The Azure Span
-    [13424892] = {npc=229847, note="In Iskaara", atlas="questobjective"}, -- Yennu
+    [13424892] = {label="{npc:229847}", note="In Iskaara", atlas="questobjective"}, -- Yennu
 })
 RegisterStep(2022, toyRescue, { -- The Waking Shores
     [47038352] = {label="Missing Note", note="Inside a cart in the Dragonscale Basecamp"},
@@ -246,25 +249,25 @@ RegisterStep(2023, toyRescue, { -- Ohn'ahran Plains
     [62003750] = {label="Yennu's Ball", note="In a dirt pile near Maruukai"},
 })
 RegisterStep(1161, toyRescue, { -- Boralus
-    [53977276] = {npc=142044, note="In Catty Cathy's House in Upton Borough", atlas="questobjective"}, -- Kenshi
+    [53977276] = {label="{npc:142044}", note="In Catty Cathy's House in Upton Borough", atlas="questobjective"}, -- Kenshi
     [42037505] = {label="Ball of Yarn", note="By a fenced tree next to the hedge maze in Proudmoore Keep"},
 }, {faction="Alliance"})
 RegisterStep(1165, toyRescue, { -- Dazar'alor
-    [56243168] = {npc=54227, note="In the Hall of Beasts", atlas="questobjective"}, -- Nuts
+    [56243168] = {label="{npc:54227}", note="In the Hall of Beasts", atlas="questobjective"}, -- Nuts
     [56222102] = {label="Plush Toy", note="By a tree above a waterfall"},
 }, {faction="Horde"})
 local toyThief = {84756, 85043, any=true} -- The Toy Thief
 RegisterStep(1161, toyThief, { -- Boralus
-    [54227281] = {npc=137191, note="Kenshi's owner"}, -- Catherine Morgan
-    [43337248] = {npc=142178, note="Use the Idol of Ohn'ahra by the tree with the Ball of Yarn to find him. He gives you the Bakar Sketch."}, -- Urban Planner Volrath
+    [54227281] = {label="{npc:137191}", note="Kenshi's owner"}, -- Catherine Morgan
+    [43337248] = {label="{npc:142178}", note="Use the Idol of Ohn'ahra by the tree with the Ball of Yarn to find him. He gives you the Bakar Sketch."}, -- Urban Planner Volrath
 }, {faction="Alliance", atlas="questobjective"})
 RegisterStep(1165, toyThief, { -- Dazar'alor
-    [56203180] = {npc=132103, note="Next to Nuts", atlas="questobjective"}, -- Matan
+    [56203180] = {label="{npc:132103}", note="Next to Nuts", atlas="questobjective"}, -- Matan
     [56992223] = {label="Bakar Sketch", note="Use the Idol of Ohn'ahra by the tree with the Plush Toy"},
 }, {faction="Horde"})
 RegisterStep(2023, toyThief, { -- Ohn'ahran Plains
-    [62794068] = {npc=191269, atlas="questobjective"}, -- Hearthkeeper Berulan
-    [58583965] = {npc=196300, note="By the western entrance of Maruukai", atlas="questobjective"}, -- Getseng
+    [62794068] = {label="{npc:191269}", atlas="questobjective"}, -- Hearthkeeper Berulan
+    [58583965] = {label="{npc:196300}", note="By the western entrance of Maruukai", atlas="questobjective"}, -- Getseng
     [57833173] = {label="Chew Toy", note="Next to some bones by the statue of Ohn'ahra"},
     [39665828] = {label="Toy Box", note="Put the Chew Toy in the box, then hide in the bush. Follow the Bakar Pup."},
     [38275596] = {label="Maru's Toy", note="In the Bakar Pup's hoard, in the cave"},
@@ -272,10 +275,10 @@ RegisterStep(2023, toyThief, { -- Ohn'ahran Plains
 
 -- Chapter 3
 RegisterStep(71, {85047, 85060, 85208, 85503}, { -- Tanaris
-    [60894487] = {npc=231413, note="At the pirate camp north of the celebration"}, -- Bonenose
+    [60894487] = {label="{npc:231413}", note="At the pirate camp north of the celebration"}, -- Bonenose
 }, npc)
 RegisterStep(210, 85060, { -- Cape of Stranglethorn: Pirate Foods and Superstitions
-    [42816897] = {npc=2664, note="In the Old Port Authority. If Kelsey is dead, talk to Mrs. Gant.", atlas="questobjective"}, -- Kelsey Yance
+    [42816897] = {label="{npc:2664}", note="In the Old Port Authority. If Kelsey is dead, talk to Mrs. Gant.", atlas="questobjective"}, -- Kelsey Yance
     [42887283] = {label="Boonful Banquet", note="Under the bunk bed on the bottom level. Then find Scowling Rosa, who patrols the docks."},
 })
 RegisterStep(170, 85208, { -- Hrothgar's Landing: A Pirate Missive
@@ -288,7 +291,7 @@ RegisterStep(71, 85476, { -- Tanaris: Buried Tweasure
     [37608412] = {label="Ancient Treasure Map", note="To the right of the chest at the end of the Ruins of Uldum. Use the Idol of Ohn'ahra to find the two ancient toys.", path=37758028},
     [47515649] = {label="Ancient Treasure Note #1", note="Reset your Tricked-Out Thinking Cap by the chest in the Ruins of Uldum, then go to (70, 132)"},
     [38852211] = {label="Ancient Treasure Note #2", note="Behind the Summoning Stone at Zul'Farrak. Uncover it with the Torch of Pyrreth."},
-    [52702687] = {npc=232863, note="In the Gadgetzan inn", atlas="questobjective"}, -- Yennu
+    [52702687] = {label="{npc:232863}", note="In the Gadgetzan inn", atlas="questobjective"}, -- Yennu
 })
 RegisterStep(71, 85503, { -- Tanaris: A Surprising Investigation
     [63044925] = {label="Impostor: {npc:233007:Reshad}", note="By the Fashion Frenzy stage"},
