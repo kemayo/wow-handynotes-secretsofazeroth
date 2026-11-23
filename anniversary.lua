@@ -317,7 +317,15 @@ ns.RegisterPoints(42, { -- Deadwind Pass
     }, -- Dirt-Caked Celebration Crate
 }, crate)
 ns.RegisterPoints(64, { -- Thousand Needles
-    [64908440] = {quest=84624, loot={228767, 228768}, inbag=228768, note="In the back of a silithid cave at the Rustmaul Dig Site. Take it to Vashti the Wandering Merchant, who patrols the eastern road in Azsuna; he sells the Sandy Celebration Crate.", path=66308620}, -- Water-Resistant Receipt, Sandy Celebration Crate
+    [64908440] = {quest=84624, loot={228768}, inbag=228768, note="In the back of a silithid cave at the Rustmaul Dig Site. Take it to {npc:91079:Vashti the Wandering Merchant}, who patrols the eastern road in Azsuna; he sells the Sandy Celebration Crate.", path=66308620}, -- Water-Resistant Receipt
+}, crate)
+ns.RegisterPoints(630, { -- Azsuna
+    [65604880] = { -- Sandy Celebration Crate
+        quest=84624, label="{npc:91079:Vashti the Wandering Merchant}", loot={228767}, inbag=228767, hide_before=ns.conditions.Item(228768),
+        note="Bring the {item:228768:Water-Resistant Receipt} from {zone:64:Thousand Needles}",
+        routes={{66002220, 65402340, 65202380, 65002460, 64602600, 64402620, 63602780, 63402880, 63202980, 63403120, 63403160, 63403320,
+            64203500, 65203640, 65603680, 66203940, 66404040, 66604300, 66604500, 66404660, 65804820, 65604880,}},
+    },
 }, crate)
 ns.RegisterPoints(117, { -- Howling Fjord
     [29400636] = {quest=83931, loot={226375}, inbag=226375, note="By a cave on the border with Grizzly Hills"}, -- Battered Celebration Crate
