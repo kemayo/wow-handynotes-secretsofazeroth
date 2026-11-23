@@ -39,11 +39,10 @@ local function RegisterStep(mapID, quest, points, defaults)
     end
     for _, point in pairs(points) do
         point.quest = quest
-        point.requires = onquest
     end
     ns.RegisterPoints(mapID, points, ns.merge({
         group="Anniversary",
-        requires=ANNIVERSARY,
+        requires=ns.conditions.All(onquest, ANNIVERSARY),
         minimap=true,
         atlas="VignetteLoot",
     }, defaults))
