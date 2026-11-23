@@ -92,8 +92,7 @@ RegisterStep(71, 84595, { -- Tanaris
     [63034943] = {npc=229775, atlas="questobjective", note="Under the Fashion Frenzy stage. Search the nearby Trash Pile first."}, -- Sully "The Pickle" McLeary
 }, loud)
 RegisterStep(371, 84595, { -- The Jade Forest
-    [42136036] = {label="Stone bridge", parent=true, note="Reset your Tricked-Out Thinking Cap to (0, 0) here, then go to (10, -40)", atlas="questobjective"},
-    [43366882] = {label="Raccoon grave", note="Use the Torch of Pyrreth on the graves. Approach Gizmo slowly when he runs."},
+    [43366882] = {label="Raccoon grave", parent=true, note="Use the Torch of Pyrreth on the graves. Approach Gizmo slowly when he runs.", path=42136036},
 }, loud)
 
 -- Nola's Last Wish
@@ -191,7 +190,7 @@ local crate = {
     achievement=40979,
     group="Anniversary",
     texture=ns.atlas_texture("VignetteLoot", {r=1, g=1, b=0}),
-    minimap=true,
+    minimap=true, parent=true, world=true,
 }
 ns.RegisterPoints(862, { -- Zuldazar
     [54205420] = {quest=83794, loot={226200}, inbag=226200, note="Buy a Clam Digger from Master Talekeep Nikto, lower in the Dive Bar, and give it to Gerald the conch on the upper level"}, -- Soggy Celebration Crate
@@ -200,7 +199,10 @@ ns.RegisterPoints(66, { -- Desolace
     [54005810] = {quest=85574, loot={232263}, inbag=232263, note="Only visible while you're dead"}, -- Hazy Celebration Crate
 }, crate)
 ns.RegisterPoints(42, { -- Deadwind Pass
-    [22438374] = {quest=84470, loot={228322}, inbag=228322, note="Deep in the Karazhan Crypts. Go down the spiral tunnel, then swim to the other side.", path={30228133, 33527072, 39837311}}, -- Dirt-Caked Celebration Crate
+    [22438374] = {
+        quest=84470, loot={228322}, inbag=228322, note="Deep in the Karazhan Crypts. Go down the spiral tunnel, then swim to the other side.",
+        path={22678363, 25788172, 30598114, 34557571, 35597512, 36007455, 36267384, 36337300, 35797157, 34917054, 34277055, 34827025, 35106980, 35746915, 36346989, 36407049, 35587373, 36097388, 38697233, 39227210, 39777212, 39847363}
+    }, -- Dirt-Caked Celebration Crate
 }, crate)
 ns.RegisterPoints(64, { -- Thousand Needles
     [64908440] = {quest=84624, loot={228767, 228768}, inbag=228768, note="In the back of a silithid cave at the Rustmaul Dig Site. Take it to Vashti the Wandering Merchant, who patrols the eastern road in Azsuna; he sells the Sandy Celebration Crate.", path=66308620}, -- Water-Resistant Receipt, Sandy Celebration Crate
