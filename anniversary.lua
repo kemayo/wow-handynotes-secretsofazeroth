@@ -216,10 +216,10 @@ RegisterStep(114, 84278, { -- Borean Tundra
 })
 RegisterStep(114, 84296, { -- Borean Tundra: The Trail's Gone Cold
     [85903400] = {label="Fishing Hut", note="One note inside the hut, and one to the left that the Torch of Pyrreth uncovers. Ignore the wisps."},
-    [88003460] = {label="Bush", note="The third note"},
+    [88003460] = {label="Bush", note="The third note. Go from here to {area:4307:The Glimmering Pillar} in {zone:119:Sholazar Basin}"},
 })
 RegisterStep(119, 84296, { -- Sholazar Basin
-    [49703600] = {label="Telescope", note="On top of the Glimmering Pillar"},
+    [49703600] = {label="Telescope", note="On top of the Glimmering Pillar. Continue to {zone:118:Icecrown}."},
 })
 RegisterStep(118, 84296, { -- Icecrown
     [16005880] = {label="Scrapes's Corpse", note="In Balagarde Fortress. Use the Idol of Ohn'ahra to find it, then the Spirit's Whistle to summon Rexxar."},
@@ -320,7 +320,7 @@ ns.RegisterPoints(64, { -- Thousand Needles
     [64908440] = {quest=84624, loot={228767, 228768}, inbag=228768, note="In the back of a silithid cave at the Rustmaul Dig Site. Take it to Vashti the Wandering Merchant, who patrols the eastern road in Azsuna; he sells the Sandy Celebration Crate.", path=66308620}, -- Water-Resistant Receipt, Sandy Celebration Crate
 }, crate)
 ns.RegisterPoints(117, { -- Howling Fjord
-    [29400636] = {quest=83931, loot={226375}, inbag=226375, note="In a cave on the border with Grizzly Hills"}, -- Battered Celebration Crate
+    [29400636] = {quest=83931, loot={226375}, inbag=226375, note="By a cave on the border with Grizzly Hills"}, -- Battered Celebration Crate
 }, crate)
 ns.RegisterPoints(71, { -- Tanaris
     [69186860] = {quest=84426, loot={228212}, inbag=228212, note="Underwater, on the second floor of the larger gnomish building"}, -- Waterlogged Celebration Crate
