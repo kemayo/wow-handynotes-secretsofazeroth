@@ -13,7 +13,7 @@ local GUEST = ns.conditions.All(ns.conditions.QuestComplete(84868), ANNIVERSARY)
 -- Every story starts with Alyx; the step points only show while on their quest.
 ns.RegisterPoints(71, { -- Tanaris
     [63025024] = { -- nudged off the Six of Frost card at 63005020
-        label="Alyx",
+        npc=226683, -- Alyx
         achievement=40871, criteria=true,
         note="Gives a new story quest each day of the event",
         atlas="questnormal",
@@ -182,7 +182,123 @@ RegisterStep(1565, 84912, { -- Ardenweald
     achievement=40871, criteria=70456, -- The Case of Staged Disaster
     requires=GUEST,
 })
+
+-- I Saved the Party and All I Got Were These Lousy Hats (40872)
+
+local npc = {atlas="questobjective"}
+
+-- Chapter 1
+RegisterStep(71, 84144, { -- Tanaris: Tat Big Meanie
+    [62105170] = {label="Red Hair", note="Between the World Boss and Infirmary tents"},
+    [62005150] = {label="Historic Tales", note="On the right post of the Infirmary tent"},
+    [64005170] = {label="Ratts", note="On a bench by the Story Time stage"},
+    [63604790] = {label="Strange Torch", note="Next to the outhouse behind the Fashion Frenzy stage"},
 })
+RegisterStep(71, {84393, 84363}, { -- Tanaris: Da Stick of Revealing, Tweasure Hunt
+    [42107190] = {loot={227790}, note="Use the Amber to spawn a Tanaris Sandworm, which drops it"}, -- Cool Guts
+    [40807050] = {loot={227785}, note="The left eye of the giant statue head, north of the Southmoon Ruins"}, -- Jeweled Eye
+    [45006450] = {loot={227775}, note="By a half-buried chest, west of the Eastmoon Ruins"}, -- Golden Chalice
+    [52204520] = {loot={227777}, note="By the broken pillar, behind Marvon Rivetseeker. Respawns in 30 seconds."}, -- Fragment of an Ancient Statue
+})
+RegisterStep(71, 84521, { -- Tanaris: Thoughtful Pursuits
+    [64205000] = {label="Crystal Ocular Lenses", note="By Isaandrae, the balloon vendor"},
+    [63604860] = {label="Thought Calculating Apparatus", note="By the barber shop behind the Fashion Frenzy stage"},
+    [61404980] = {label="Downy Helmet Liner", note="Behind Taivan in the Pet Corner"},
+})
+RegisterStep(71, 84237, { -- Tanaris: The "Great" Detective
+    [63905170] = {npc=226796, note="On a bench by the Story Time stage", atlas="questobjective"}, -- Detective Athelton Jones
+    [63805110] = {label="Team Solid", note="Use the Idol of Ohn'ahra, then talk to all three until they have nothing more to say", atlas="questobjective"},
+    [65905950] = {label="Abandoned Chair", note="On the beach south of the Caverns of Time"},
+    [65904040] = {label="Wavestrider Beach", note="Talk to all the NPCs and use the Torch of Pyrreth on the sand piles. At 96% progress, accuse someone to Jones."},
+})
+RegisterStep(71, 84278, { -- Tanaris: Tracking Quest
+    [68004080] = {label="Goblin Vessel", note="Use the Tricked-Out Thinking Cap by Alyx, then go to (36, 44)", atlas="questobjective"},
+})
+RegisterStep(114, 84278, { -- Borean Tundra
+    [78805360] = {label="Unu'pe Docks", note="Reset your Tricked-Out Thinking Cap here", atlas="questobjective"},
+    [77304610] = {npc=226952, atlas="questobjective"}, -- Rexxar
+})
+RegisterStep(114, 84296, { -- Borean Tundra: The Trail's Gone Cold
+    [85903400] = {label="Fishing Hut", note="One note inside the hut, and one to the left that the Torch of Pyrreth uncovers. Ignore the wisps."},
+    [88003460] = {label="Bush", note="The third note"},
+})
+RegisterStep(119, 84296, { -- Sholazar Basin
+    [49703600] = {label="Telescope", note="On top of the Glimmering Pillar"},
+})
+RegisterStep(118, 84296, { -- Icecrown
+    [16005880] = {label="Scrapes's Corpse", note="In Balagarde Fortress. Use the Idol of Ohn'ahra to find it, then the Spirit's Whistle to summon Rexxar."},
+})
+RegisterStep(71, 84336, { -- Tanaris: Spot the Difference
+    [63385230] = {npc=158192, note="Witness"}, -- Leeroy Jenkins
+    [63455167] = {npc=227731, note="Witness"}, -- Addie Fizzlebog
+    [62475194] = {npc=228250, note="Witness"}, -- Hemet Nesingwary Sr.
+    [59946247] = {npc=228663, note="Southeast of the Bootlegger Outpost flight path. Kill it, then return to Alyx."}, -- Y'lliya Xennin
+}, npc)
+
+-- Chapter 2
+local toyRescue = {84588, 85025, any=true} -- Operation Toy Rescue
+RegisterStep(2024, toyRescue, { -- The Azure Span
+    [13424892] = {npc=229847, note="In Iskaara", atlas="questobjective"}, -- Yennu
+})
+RegisterStep(2022, toyRescue, { -- The Waking Shores
+    [47038352] = {label="Missing Note", note="Inside a cart in the Dragonscale Basecamp"},
+})
+RegisterStep(2023, toyRescue, { -- Ohn'ahran Plains
+    [62003750] = {label="Yennu's Ball", note="In a dirt pile near Maruukai"},
+})
+RegisterStep(1161, toyRescue, { -- Boralus
+    [53977276] = {npc=142044, note="In Catty Cathy's House in Upton Borough", atlas="questobjective"}, -- Kenshi
+    [42037505] = {label="Ball of Yarn", note="By a fenced tree next to the hedge maze in Proudmoore Keep"},
+}, {faction="Alliance"})
+RegisterStep(1165, toyRescue, { -- Dazar'alor
+    [56243168] = {npc=54227, note="In the Hall of Beasts", atlas="questobjective"}, -- Nuts
+    [56222102] = {label="Plush Toy", note="By a tree above a waterfall"},
+}, {faction="Horde"})
+local toyThief = {84756, 85043, any=true} -- The Toy Thief
+RegisterStep(1161, toyThief, { -- Boralus
+    [54227281] = {npc=137191, note="Kenshi's owner"}, -- Catherine Morgan
+    [43337248] = {npc=142178, note="Use the Idol of Ohn'ahra by the tree with the Ball of Yarn to find him. He gives you the Bakar Sketch."}, -- Urban Planner Volrath
+}, {faction="Alliance", atlas="questobjective"})
+RegisterStep(1165, toyThief, { -- Dazar'alor
+    [56203180] = {npc=132103, note="Next to Nuts", atlas="questobjective"}, -- Matan
+    [56992223] = {label="Bakar Sketch", note="Use the Idol of Ohn'ahra by the tree with the Plush Toy"},
+}, {faction="Horde"})
+RegisterStep(2023, toyThief, { -- Ohn'ahran Plains
+    [62794068] = {npc=191269, atlas="questobjective"}, -- Hearthkeeper Berulan
+    [58583965] = {npc=196300, note="By the western entrance of Maruukai", atlas="questobjective"}, -- Getseng
+    [57833173] = {label="Chew Toy", note="Next to some bones by the statue of Ohn'ahra"},
+    [39665828] = {label="Toy Box", note="Put the Chew Toy in the box, then hide in the bush. Follow the Bakar Pup."},
+    [38275596] = {label="Maru's Toy", note="In the Bakar Pup's hoard, in the cave"},
+})
+
+-- Chapter 3
+RegisterStep(71, {85047, 85060, 85208, 85503}, { -- Tanaris
+    [60894487] = {npc=231413, note="At the pirate camp north of the celebration"}, -- Bonenose
+}, npc)
+RegisterStep(210, 85060, { -- Cape of Stranglethorn: Pirate Foods and Superstitions
+    [42816897] = {npc=2664, note="In the Old Port Authority. If Kelsey is dead, talk to Mrs. Gant.", atlas="questobjective"}, -- Kelsey Yance
+    [42887283] = {label="Boonful Banquet", note="Under the bunk bed on the bottom level. Then find Scowling Rosa, who patrols the docks."},
+})
+RegisterStep(170, 85208, { -- Hrothgar's Landing: A Pirate Missive
+    [58421417] = {label="The Lone Watcher", note="Reset your Tricked-Out Thinking Cap here, then go to (-12, 10)", atlas="questobjective"},
+    [55491063] = {label="Secret Ingredient", note="Ice crystals with a Deep Sea Monsterbelly. You can also buy one from the auction house."},
+})
+
+-- Chapter 4
+RegisterStep(71, 85476, { -- Tanaris: Buried Tweasure
+    [37608412] = {label="Ancient Treasure Map", note="To the right of the chest at the end of the Ruins of Uldum. Use the Idol of Ohn'ahra to find the two ancient toys.", path=37758028},
+    [47515649] = {label="Ancient Treasure Note #1", note="Reset your Tricked-Out Thinking Cap by the chest in the Ruins of Uldum, then go to (70, 132)"},
+    [38852211] = {label="Ancient Treasure Note #2", note="Behind the Summoning Stone at Zul'Farrak. Uncover it with the Torch of Pyrreth."},
+    [52702687] = {npc=232863, note="In the Gadgetzan inn", atlas="questobjective"}, -- Yennu
+})
+RegisterStep(71, 85503, { -- Tanaris: A Surprising Investigation
+    [63044925] = {label="Impostor: {npc:233007:Reshad}", note="By the Fashion Frenzy stage"},
+    [63034986] = {label="Impostor: {npc:233000:Big Kinook}", note="By the Mole Machine next to the Fashion Frenzy stage"},
+    [61665105] = {label="Impostor: {npc:233002:Lorewalker Cho}", note="By the ice rink"},
+    [61904990] = {label="Impostor: {npc:233006:Maru}", note="By the Pet Corner"},
+    [63805176] = {label="Impostor: {npc:233042:Jepetto Joybuzz}", note="By the barrels next to the Story Time seats"},
+    [65814176] = {label="Beach Party", note="After the letters and Bonenose"},
+}, npc)
 
 -- Celebration Crates: these stay up after the event ends.
 -- Crate Insurance Agent (40873) is any six; No Crate Left Behind (40979) is all of them.
